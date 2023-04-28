@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.webengage.cordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <feature name="FCMPlugin">
+        <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <platform name="android">
+        <preference name="AndroidXEnabled" value="true" />
+    </platform>
+    <feature name="WebEngagePlugin">
+        <param name="android-package" value="com.webengage.cordova.WebEngagePlugin" />
+    </feature>
+    <name>CordovaExample</name>
+    <description>Sample Apache Cordova App</description>
+    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+        <meta-data android:name="com.webengage.sdk.android.key" android:value="~47b66161" />
+        <meta-data android:name="com.webengage.sdk.android.debug" android:value="true" />
+        <meta-data android:name="com.webengage.sdk.android.location_tracking" android:value="true" />
+        <meta-data android:name="com.webengage.sdk.android.alternate_interface_id" android:value="false" />
+        <service android:exported="true" android:name="com.CustomFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </config-file>
+    <config-file parent="/manifest" target="AndroidManifest.xml">
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <uses-permission android:name="android.permission.AD_ID" />
+    </config-file>
+    <preference name="loglevel" value="DEBUG" />
+</widget>

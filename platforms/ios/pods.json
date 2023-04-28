@@ -1,0 +1,26 @@
+{
+    "declarations": {
+        "use_frameworks!": {
+            "declaration": "use_frameworks!",
+            "count": 1
+        }
+    },
+    "sources": {
+        "https://github.com/CocoaPods/Specs.git": {
+            "source": "https://github.com/CocoaPods/Specs.git",
+            "count": 2
+        }
+    },
+    "libraries": {
+        "WebEngage": {
+            "name": "WebEngage",
+            "spec": "~> 5.2.6",
+            "count": 1
+        },
+        "Firebase/Messaging": {
+            "name": "Firebase/Messaging",
+            "spec": "~> 7.4.0",
+            "count": 1
+        }
+    }
+}
