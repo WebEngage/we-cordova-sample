@@ -20,6 +20,8 @@
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 
+var loginButton;
+
 document.addEventListener('deviceready', onDeviceReady, false);
 
 
@@ -44,22 +46,84 @@ function onDeviceReady() {
     webengage.notification.onClick(function(inAppData, actionId) {
         console.log("In-app shown");
     });
-    // webengage.jwtManager.tokenInvalidatedCallback(function(){
-    //     console.log("cordova jwt expired")
-    // });
+
     webengage.engage();
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+    loginButton = document.getElementById('loginButton')
+    loginButton.addEventListener('click', saveData);
+    webengage.jwtManager.ontokenInvalidatedCallback(function(errorMessage){
+        console.log("cordova jwt expired")
+        alert("JWT is expired/Invalid. Please login again.");
+        // TODO open modal to update secureToken
+        });
     document.getElementById('deviceready').classList.add('ready');
-    const listener = (data) => {
-        const payload = data.detail
-        console.log("data: " + payload);
-    }
-    FCM.eventTarget.addEventListener("notification", listener, false);
+
+    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+
+    // FCM.eventTarget.addEventListener("notification", listener, false);
 
 }
 
+function toggleModal() {
+    // alert("inside toggle modal")
+    var modal = document.getElementById("loginModal");
+    if (modal.style.display === "block") {
+        modal.style.display = "none"; // Hide the modal
+    } else {
+        modal.style.display = "block"; // Show the modal
+    }
+}
+
+// Function to save data from the modal
+function saveData() {
+    console.log("Inside SaveData");
+
+    var cuid = document.getElementById("cuid").value;
+    var jwt = document.getElementById("jwt").value;
+    console.log("Save data cuid"+cuid+" | jwt- "+jwt);
+    if (cuid) {
+    console.log("inside if in saveData");
+
+        if(jwt) {
+            // alert("LoggedIn with jwt "+cuid)
+            alert("You are logged in with the JWT: " + cuid);
+            webengage.user.login(cuid, jwt);
+        }
+        webengage.user.login(cuid, null);
+    }
+    toggleModal();
+}
+
+// function saveData() {
+//     console.log("Inside saveData");
+
+//     // Check if the input element exists
+//     const cuidInput = document.getElementById("cuid");
+
+//     if (cuidInput) {
+//         alert("inside cuidInput")
+//         var cuid = cuidInput.value;
+//         console.log("cuid: " + cuid); // Log the value for debugging
+
+//         if (cuid) {
+//         alert("inside fName")
+
+//             console.log("Inside if in saveData");
+            
+//             // Rest of your code here
+//         } else {
+//             console.log("cuid is empty or undefined");
+//         }
+//     } else {
+//         console.log("cuidInput not found");
+//     }
+
+//     toggleModal();
+// }
+
+
+
 // LOGIN
-document.getElementById("login").addEventListener("click", showLoginAlert);
+document.getElementById("login").addEventListener("click", toggleModal);
 function showLoginAlert() {
     navigator.notification.prompt(
         'Please enter your username.',  // message
@@ -69,6 +133,7 @@ function showLoginAlert() {
         ''                 // defaultText
     );
 }
+
 
 function performLogin(results) {
     console.log(results);
@@ -262,15 +327,16 @@ function setScreenName(results) {
 // TRACK EVENT
 document.getElementById("event").addEventListener("click", showEventAlert);
 function showEventAlert() {
+    webengage.track("test-event");
     // Cordova is now initialized. Have fun!
     console.log('event button pressed');
-    navigator.notification.prompt(
-        'Please enter Event name.',  // message
-        trackEvent,                  // callback to invoke
-        'Track Event',            // title
-        ['Ok','Cancel'],             // buttonLabels
-        ''                 // defaultText
-    );
+    // navigator.notification.prompt(
+    //     'Please enter Event name.',  // message
+    //     trackEvent,                  // callback to invoke
+    //     'Track Event',            // title
+    //     ['Ok','Cancel'],             // buttonLabels
+    //     ''                 // defaultText
+    // );
 }
 
 function trackEvent(results) {
