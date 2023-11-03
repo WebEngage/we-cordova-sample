@@ -49,12 +49,12 @@ function onDeviceReady() {
     webengage.engage();
     loginButton = document.getElementById('loginButton')
     loginButton.addEventListener('click', saveData);
-    webengage.jwtManager.ontokenInvalidatedCallback(function(errorMessage){
+    webengage.jwtManager.tokenInvalidatedCallback(function(errorMessage){
         console.log("cordova jwt expired")
         // Update jwt token of the user
         // webengage.user.setSecureToken(cuid,jwt)
         alert("JWT is expired/Invalid. Resetting JWT token.");
-        });
+    });
     document.getElementById('deviceready').classList.add('ready');
 
     FCM.eventTarget.addEventListener("notification", listener, false);
