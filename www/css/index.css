@@ -228,6 +228,10 @@ h1 {
   }
 }
 
+#list {
+  background-color: #a7a7a7;
+}
+
 .blink {
   animation: fade 3000ms infinite;
   -webkit-animation: fade 3000ms infinite;

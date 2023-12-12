@@ -45,7 +45,9 @@ function onDeviceReady() {
         console.log("In-app shown");
     });
 
-    webengage.engage();
+    // webengage.engage();
+    webengage.engage({"android":{"autoGAIDTracking":true}});
+
    document.getElementById('deviceready').classList.add('ready');
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     // Comment below line incase app freezing issue or configure FCM
@@ -296,3 +298,31 @@ function trackEvent(results) {
         webengage.track(results.input1)
     }
 }
+
+
+document.getElementById("whatsapp-opt-button").addEventListener("click", function() {
+    console.log("Clicked on whatsapp Opt ");
+
+    var status = document.getElementById("whatsapp-opt-button").checked;
+    console.log("Clicked on whatsapp Opt ",status);
+    webengage.user.setUserOptIn("whatsapp",status);
+    window.localStorage.setItem("whatsapp-opt", status);
+});
+
+
+document.getElementById("viber-opt-button").addEventListener("click", function() {
+    var status = document.getElementById("viber-opt-button").checked;
+    console.log("Clicked on viber Opt ",status);
+    webengage.user.setUserOptIn("viber",status);
+    window.localStorage.setItem("viber-opt", status);
+});
+
+document.getElementById("gaid-enable-button").addEventListener("click", function() {
+    var status = document.getElementById("gaid-enable-button").checked;
+    console.log("Clicked on gaid enable ",status);
+    if(status){
+        document.getElementById("gaid-enable-button").disabled = true;
+        webengage.startGAIDTracking();
+        window.localStorage.setItem("gaid-enable", status);
+    }
+});
