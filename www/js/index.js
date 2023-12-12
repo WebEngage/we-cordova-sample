@@ -44,22 +44,38 @@ function onDeviceReady() {
     webengage.notification.onClick(function(inAppData, actionId) {
         console.log("In-app shown");
     });
-    // webengage.jwtManager.tokenInvalidatedCallback(function(){
-    //     console.log("cordova jwt expired")
-    // });
+
     webengage.engage();
+   document.getElementById('deviceready').classList.add('ready');
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
-    const listener = (data) => {
-        const payload = data.detail
-        console.log("data: " + payload);
-    }
+    // Comment below line incase app freezing issue or configure FCM
     FCM.eventTarget.addEventListener("notification", listener, false);
 
 }
 
+function toggleModal() {
+    var modal = document.getElementById("loginModal");
+    if (modal.style.display === "block") {
+        modal.style.display = "none"; // Hide the modal
+    } else {
+        modal.style.display = "block"; // Show the modal
+    }
+}
+
+// Function to save data from the modal
+function saveData() {
+    var cuid = document.getElementById("cuid").value;
+    if (cuid) {
+        webengage.user.login(cuid, null);
+    }
+    toggleModal();
+}
+
+
+document.getElementById("loginButton").addEventListener("click", saveData);
+
 // LOGIN
-document.getElementById("login").addEventListener("click", showLoginAlert);
+document.getElementById("login").addEventListener("click", toggleModal);
 function showLoginAlert() {
     navigator.notification.prompt(
         'Please enter your username.',  // message
