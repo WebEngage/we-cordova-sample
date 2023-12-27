@@ -19,14 +19,30 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+
 document.addEventListener('deviceready', onDeviceReady, false);
+
+// Success callback function
+function onSuccess(token) {
+    console.log("Token: " + token);
+}
+
+// Error callback function
+function onError(error) {
+    console.error("Error getting token: " + error);
+}
 
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
+    console.log("Started");
+    webengage.engage();
     webengage.push.onClick(function(deeplink, customData) {
         console.log("Push clicked");
     });
+
+    androidFCMPlugin.updateToken();
+    androidFCMPlugin.getToken(onSuccess, onError);
 
     webengage.notification.onPrepared(function(inAppData) {
         console.log("InApp Prepared Callback Received, Data: " + JSON.stringify(inAppData));
@@ -43,16 +59,41 @@ function onDeviceReady() {
     webengage.notification.onClick(function(inAppData, actionId) {
         console.log("In-app shown");
     });
-    webengage.jwtManager.tokenInvalidatedCallback(function(){
-        console.log("cordova jwt expired")
-    });
+
+
+
+
     webengage.engage();
+   document.getElementById('deviceready').classList.add('ready');
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+    // Comment below line incase app freezing issue or configure FCM
+  //  FCM.eventTarget.addEventListener("notification", listener, false);
+
 }
 
+function toggleModal() {
+    var modal = document.getElementById("loginModal");
+    if (modal.style.display === "block") {
+        modal.style.display = "none"; // Hide the modal
+    } else {
+        modal.style.display = "block"; // Show the modal
+    }
+}
+
+// Function to save data from the modal
+function saveData() {
+    var cuid = document.getElementById("cuid").value;
+    if (cuid) {
+        webengage.user.login(cuid, null);
+    }
+    toggleModal();
+}
+
+
+document.getElementById("loginButton").addEventListener("click", saveData);
+
 // LOGIN
-document.getElementById("login").addEventListener("click", showLoginAlert);
+document.getElementById("login").addEventListener("click", toggleModal);
 function showLoginAlert() {
     navigator.notification.prompt(
         'Please enter your username.',  // message
@@ -220,7 +261,7 @@ document.getElementById("location").addEventListener("click", showLocationAlert)
 function showLocationAlert() {
     // Cordova is now initialized. Have fun!
     console.log('location button pressed');
-    
+
 }
 
 function setLocation(results) {

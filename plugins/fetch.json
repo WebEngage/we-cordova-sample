@@ -28,5 +28,13 @@
       "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0",
       "IOS_FIREBASE_MESSAGING_VERSION": "~> 7.4.0"
     }
+  },
+  "cordova-plugin-android-fcm": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/WebEngage/cordova-plugin-android-fcm.git"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

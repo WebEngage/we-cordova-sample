@@ -22,12 +22,27 @@
 
 document.addEventListener('deviceready', onDeviceReady, false);
 
+// Success callback function
+function onSuccess(token) {
+    console.log("Token: " + token);
+}
+
+// Error callback function
+function onError(error) {
+    console.error("Error getting token: " + error);
+}
+
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
+    console.log("Started");
+    webengage.engage();
     webengage.push.onClick(function(deeplink, customData) {
         console.log("Push clicked");
     });
+
+    androidfcm.updateToken();
+    androidfcm.getToken(onSuccess, onError);
 
     webengage.notification.onPrepared(function(inAppData) {
         console.log("InApp Prepared Callback Received, Data: " + JSON.stringify(inAppData));
@@ -45,11 +60,14 @@ function onDeviceReady() {
         console.log("In-app shown");
     });
 
+
+
+
     webengage.engage();
    document.getElementById('deviceready').classList.add('ready');
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     // Comment below line incase app freezing issue or configure FCM
-    FCM.eventTarget.addEventListener("notification", listener, false);
+  //  FCM.eventTarget.addEventListener("notification", listener, false);
 
 }
 

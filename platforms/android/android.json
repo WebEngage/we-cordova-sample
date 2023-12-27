@@ -9,54 +9,42 @@
         "parents": {
           "/manifest/application": [
             {
-              "xml": "<meta-data android:name=\"com.webengage.sdk.android.key\" android:value=\"~47b66161\" />",
-              "count": 11
+              "xml": "<service android:exported=\"true\" android:name=\"com.CustomFirebaseMessaging\"><intent-filter><action android:name=\"com.google.firebase.MESSAGING_EVENT\" /></intent-filter></service>",
+              "count": 38
+            },
+            {
+              "xml": "<service android:exported=\"true\" android:name=\"com.androidfcm.cordova.CustomFirebaseMessagingService\"><intent-filter><action android:name=\"com.google.firebase.MESSAGING_EVENT\" /></intent-filter></service>",
+              "count": 1
+            },
+            {
+              "xml": "<meta-data android:name=\"com.webengage.sdk.android.key\" android:value=\"WEBENGAGE_LICENSE\" />",
+              "count": 34
             },
             {
               "xml": "<meta-data android:name=\"com.webengage.sdk.android.debug\" android:value=\"true\" />",
-              "count": 11
+              "count": 34
             },
             {
               "xml": "<meta-data android:name=\"com.webengage.sdk.android.location_tracking\" android:value=\"true\" />",
-              "count": 11
+              "count": 34
             },
             {
               "xml": "<meta-data android:name=\"com.webengage.sdk.android.alternate_interface_id\" android:value=\"false\" />",
-              "count": 11
-            },
-            {
-              "xml": "<service android:exported=\"true\" android:name=\"com.CustomFirebaseMessaging\"><intent-filter><action android:name=\"com.google.firebase.MESSAGING_EVENT\" /></intent-filter></service>",
-              "count": 11
-            },
-            {
-              "xml": "<activity android:exported=\"true\" android:launchMode=\"singleTop\" android:name=\"com.gae.scaffolder.plugin.FCMPluginActivity\"><intent-filter><action android:name=\"FCM_PLUGIN_ACTIVITY\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
-              "count": 1
-            },
-            {
-              "xml": "<service android:exported=\"true\" android:name=\"com.gae.scaffolder.plugin.MyFirebaseMessagingService\" android:stopWithTask=\"false\"><intent-filter><action android:name=\"com.google.firebase.MESSAGING_EVENT\" /></intent-filter></service>",
-              "count": 1
-            },
-            {
-              "xml": "<meta-data android:name=\"com.google.firebase.messaging.default_notification_icon\" android:resource=\"@mipmap/ic_launcher\" />",
-              "count": 1
-            },
-            {
-              "xml": "<receiver android:exported=\"true\" android:name=\"com.webengage.sdk.android.InstallTracker\"><intent-filter><action android:name=\"com.android.vending.INSTALL_REFERRER\" /></intent-filter></receiver>",
-              "count": 1
+              "count": 34
             }
           ],
           "/manifest": [
             {
               "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
-              "count": 11
+              "count": 38
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.AD_ID\" />",
-              "count": 11
+              "count": 38
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-              "count": 1
+              "count": 2
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
@@ -73,7 +61,7 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"FCMPlugin\"><param name=\"android-package\" value=\"com.gae.scaffolder.plugin.FCMPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "xml": "<feature name=\"AndroidFcmPlugin\"><param name=\"android-package\" value=\"com.androidfcm.cordova.AndroidFcmPlugin\" /></feature>",
               "count": 1
             }
           ]
@@ -82,10 +70,6 @@
       "config.xml": {
         "parents": {
           "/*": [
-            {
-              "xml": "<platform name=\"android\"><preference name=\"AndroidXEnabled\" value=\"true\" /></platform>",
-              "count": 1
-            },
             {
               "xml": "<feature name=\"WebEngagePlugin\"><param name=\"android-package\" value=\"com.webengage.cordova.WebEngagePlugin\" /></feature>",
               "count": 1
@@ -99,15 +83,10 @@
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.webengage.cordova"
     },
-    "cordova-plugin-fcm-with-dependecy-updated": {
-      "ANDROID_DEFAULT_NOTIFICATION_ICON": "@mipmap/ic_launcher",
-      "ANDROID_FCM_VERSION": "21.0.0",
-      "ANDROID_FIREBASE_BOM_VERSION": "26.0.0",
-      "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.4",
-      "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0",
+    "cordova-plugin-webengage": {
       "PACKAGE_NAME": "com.webengage.cordova"
     },
-    "cordova-plugin-webengage": {
+    "cordova-plugin-android-fcm": {
       "PACKAGE_NAME": "com.webengage.cordova"
     }
   },
@@ -130,25 +109,25 @@
       ]
     },
     {
-      "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
-      "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
-      "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
-      "clobbers": [
-        "FCM"
-      ]
-    },
-    {
       "id": "cordova-plugin-webengage.WebEngagePlugin",
       "file": "plugins/cordova-plugin-webengage/www/WebEngagePlugin.js",
       "pluginId": "cordova-plugin-webengage",
       "clobbers": [
         "webengage"
       ]
+    },
+    {
+      "id": "cordova-plugin-android-fcm.AndroidFcmPlugin",
+      "file": "plugins/cordova-plugin-android-fcm/www/AndroidFcmPlugin.js",
+      "pluginId": "cordova-plugin-android-fcm",
+      "clobbers": [
+        "androidfcm"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-dialogs": "2.0.2",
-    "cordova-plugin-fcm-with-dependecy-updated": "7.8.0",
-    "cordova-plugin-webengage": "1.0.0"
+    "cordova-plugin-webengage": "1.0.0",
+    "cordova-plugin-android-fcm": "1.0.1"
   }
 }

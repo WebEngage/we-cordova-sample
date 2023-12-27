@@ -32,7 +32,6 @@
 	<array>
 		<string>Background Fetch</string>
 		<string>fetch</string>
-		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>CDVLaunchScreen</string>
@@ -59,7 +58,5 @@
 	<string>VERBOSE</string>
 	<key>WEGEnvironment</key>
 	<string>DEFAULT</string>
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
 </dict>
 </plist>

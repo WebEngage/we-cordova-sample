@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "785234216000",
+    "project_id": "cordova-d90f2",
+    "storage_bucket": "cordova-d90f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785234216000:android:401e6197c5c90ff1094ba5",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.WebEngageSample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785234216000-l89053d47v6d5du6osdmtpqfft9ub9mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtIL4WFtgem24KBliQxHWGlkn6u1PIj9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785234216000-l89053d47v6d5du6osdmtpqfft9ub9mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785234216000:android:c9f83559a9ff1655094ba5",
+        "android_client_info": {
+          "package_name": "com.webengage.cordova"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785234216000-l89053d47v6d5du6osdmtpqfft9ub9mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtIL4WFtgem24KBliQxHWGlkn6u1PIj9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785234216000-l89053d47v6d5du6osdmtpqfft9ub9mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

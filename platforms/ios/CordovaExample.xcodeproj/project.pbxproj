@@ -29,11 +29,6 @@
 		F122126F299B7DAA00B41B4F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F122126D299B7DAA00B41B4F /* MainInterface.storyboard */; };
 		F1221273299B7DAA00B41B4F /* ContentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F1221267299B7DAA00B41B4F /* ContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F86FD006EB505C3D46B52241 /* Pods_ContentExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51E0C48CE1BF0AE359DA710 /* Pods_ContentExtension.framework */; };
-		0A86312F825E459FABFA99A1 /* FCMPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1CADB4D1F45E883BB9F42 /* FCMPlugin.m */; };
-		4A37010C448844FDB30431C9 /* AppDelegate+FCMPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A6A8C8643743BABBB1A4D1 /* AppDelegate+FCMPlugin.m */; };
-		C5841D12373C4066B3A1649B /* FCMPluginIOS9Support.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF4202F0D7C493EAAC6CDB6 /* FCMPluginIOS9Support.m */; };
-		E2CFAA5694124120AFA570A8 /* FCMNotificationCenterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0F6C40A75540ECAA6A1EC5 /* FCMNotificationCenterDelegate.m */; };
-		6CCC0A5BA9E9445F92C357FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 562F303C4E00458A9C5735F9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,15 +141,6 @@
 		F122126E299B7DAA00B41B4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F1221270299B7DAA00B41B4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = CordovaExample/config.xml; sourceTree = "<group>"; };
-		9AD1CADB4D1F45E883BB9F42 /* FCMPlugin.m */ = {isa = PBXFileReference; name = "FCMPlugin.m"; path = "cordova-plugin-fcm-with-dependecy-updated/FCMPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		E9A6A8C8643743BABBB1A4D1 /* AppDelegate+FCMPlugin.m */ = {isa = PBXFileReference; name = "AppDelegate+FCMPlugin.m"; path = "cordova-plugin-fcm-with-dependecy-updated/AppDelegate+FCMPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		0AF4202F0D7C493EAAC6CDB6 /* FCMPluginIOS9Support.m */ = {isa = PBXFileReference; name = "FCMPluginIOS9Support.m"; path = "cordova-plugin-fcm-with-dependecy-updated/FCMPluginIOS9Support.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		DA0F6C40A75540ECAA6A1EC5 /* FCMNotificationCenterDelegate.m */ = {isa = PBXFileReference; name = "FCMNotificationCenterDelegate.m"; path = "cordova-plugin-fcm-with-dependecy-updated/FCMNotificationCenterDelegate.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		7FF647B47BE543F1AD00CABE /* FCMPlugin.h */ = {isa = PBXFileReference; name = "FCMPlugin.h"; path = "cordova-plugin-fcm-with-dependecy-updated/FCMPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		B42DB02C4E074039A5B28D61 /* AppDelegate+FCMPlugin.h */ = {isa = PBXFileReference; name = "AppDelegate+FCMPlugin.h"; path = "cordova-plugin-fcm-with-dependecy-updated/AppDelegate+FCMPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		205A47332AF945198E7D96C6 /* FCMPluginIOS9Support.h */ = {isa = PBXFileReference; name = "FCMPluginIOS9Support.h"; path = "cordova-plugin-fcm-with-dependecy-updated/FCMPluginIOS9Support.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		F1FA0E30A5124D318730C8FB /* FCMNotificationCenterDelegate.h */ = {isa = PBXFileReference; name = "FCMNotificationCenterDelegate.h"; path = "cordova-plugin-fcm-with-dependecy-updated/FCMNotificationCenterDelegate.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		562F303C4E00458A9C5735F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = text.plist.xml; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,7 +237,6 @@
 				8D1107310486CEB800E47090 /* CordovaExample-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
 				6025DDC7779D4FC5BD7FDAB2 /* CDVNotification.bundle */,
-				562F303C4E00458A9C5735F9 /* GoogleService-Info.plist */,
 			);
 			name = Resources;
 			path = CordovaExample/Resources;
@@ -285,14 +270,6 @@
 				36A0DA172C7B435AB24C0AD1 /* AppDelegate+WebEngagePlugin.m */,
 				817340FB8C914EB1BE9234E7 /* WebEngagePlugin.h */,
 				EF25D2AF8BD240A5B0C07E78 /* AppDelegate+WebEngagePlugin.h */,
-				9AD1CADB4D1F45E883BB9F42 /* FCMPlugin.m */,
-				E9A6A8C8643743BABBB1A4D1 /* AppDelegate+FCMPlugin.m */,
-				0AF4202F0D7C493EAAC6CDB6 /* FCMPluginIOS9Support.m */,
-				DA0F6C40A75540ECAA6A1EC5 /* FCMNotificationCenterDelegate.m */,
-				7FF647B47BE543F1AD00CABE /* FCMPlugin.h */,
-				B42DB02C4E074039A5B28D61 /* AppDelegate+FCMPlugin.h */,
-				205A47332AF945198E7D96C6 /* FCMPluginIOS9Support.h */,
-				F1FA0E30A5124D318730C8FB /* FCMNotificationCenterDelegate.h */,
 			);
 			name = Plugins;
 			path = CordovaExample/Plugins;
@@ -485,7 +462,6 @@
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
 				C03A6E95A1AA4C13BFD5EA0E /* CDVNotification.bundle in Resources */,
-				6CCC0A5BA9E9445F92C357FE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,10 +594,6 @@
 				41B39F606B604FC4BFB685BD /* CDVNotification.m in Sources */,
 				8D5969354A934169AEC5BB14 /* WebEngagePlugin.m in Sources */,
 				3E4CFB6FF4A64CDAADFF133F /* AppDelegate+WebEngagePlugin.m in Sources */,
-				0A86312F825E459FABFA99A1 /* FCMPlugin.m in Sources */,
-				4A37010C448844FDB30431C9 /* AppDelegate+FCMPlugin.m in Sources */,
-				C5841D12373C4066B3A1649B /* FCMPluginIOS9Support.m in Sources */,
-				E2CFAA5694124120AFA570A8 /* FCMNotificationCenterDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,7 +671,7 @@
 				INFOPLIST_FILE = "CordovaExample/CordovaExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.webEngage.stageSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.webengage.cordova;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -731,7 +703,7 @@
 				INFOPLIST_FILE = "CordovaExample/CordovaExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.webEngage.stageSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.webengage.cordova;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

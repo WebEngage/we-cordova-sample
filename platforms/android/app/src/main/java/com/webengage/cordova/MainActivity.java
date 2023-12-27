@@ -20,16 +20,6 @@
 package com.webengage.cordova;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.webengage.sdk.android.WebEngage;
-import androidx.annotation.NonNull;
-
 import org.apache.cordova.*;
 
 public class MainActivity extends CordovaActivity
@@ -47,18 +37,5 @@ public class MainActivity extends CordovaActivity
 
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
-
-        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
-            @Override
-            public void onComplete(@NonNull Task<String> task) {
-                try {
-                    String token = task.getResult();
-                    com.webengage.sdk.android.Logger.d(TAG, "Updating WebEngage FCM token: " + token);
-                    com.webengage.sdk.android.WebEngage.get().setRegistrationID(token);
-                } catch (Exception e) {
-                    com.webengage.sdk.android.Logger.e(TAG, "FCM token error", e);
-                }
-            }
-        });
     }
 }

@@ -13,10 +13,10 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova-android": "^11.0.0",
+    "cordova-android": "^9.1.0",
     "cordova-ios": "^6.2.0",
+    "cordova-plugin-android-fcm": "github:WebEngage/cordova-plugin-android-fcm",
     "cordova-plugin-dialogs": "^2.0.2",
-    "cordova-plugin-fcm-with-dependecy-updated": "^7.8.0",
     "cordova-plugin-webengage": "^1.1.0"
   },
   "cordova": {
@@ -26,7 +26,8 @@
     ],
     "plugins": {
       "cordova-plugin-dialogs": {},
-      "cordova-plugin-webengage": {}
+      "cordova-plugin-webengage": {},
+      "cordova-plugin-android-fcm": {}
     }
   }
 }

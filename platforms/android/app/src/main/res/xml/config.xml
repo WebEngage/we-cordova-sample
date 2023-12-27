@@ -3,13 +3,9 @@
     <feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
     </feature>
-    <feature name="FCMPlugin">
-        <param name="android-package" value="com.gae.scaffolder.plugin.FCMPlugin" />
-        <param name="onload" value="true" />
+    <feature name="AndroidFcmPlugin">
+        <param name="android-package" value="com.androidfcm.cordova.AndroidFcmPlugin" />
     </feature>
-    <platform name="android">
-        <preference name="AndroidXEnabled" value="true" />
-    </platform>
     <feature name="WebEngagePlugin">
         <param name="android-package" value="com.webengage.cordova.WebEngagePlugin" />
     </feature>
@@ -22,7 +18,7 @@
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <config-file parent="/manifest/application" target="AndroidManifest.xml">
-        <meta-data android:name="com.webengage.sdk.android.key" android:value="~47b66161" />
+        <meta-data android:name="com.webengage.sdk.android.key" android:value="WEBENGAGE_LICENSE" />
         <meta-data android:name="com.webengage.sdk.android.debug" android:value="true" />
         <meta-data android:name="com.webengage.sdk.android.location_tracking" android:value="true" />
         <meta-data android:name="com.webengage.sdk.android.alternate_interface_id" android:value="false" />
@@ -37,4 +33,5 @@
         <uses-permission android:name="android.permission.AD_ID" />
     </config-file>
     <preference name="loglevel" value="DEBUG" />
+    <preference name="AndroidXEnabled" value="true" />
 </widget>

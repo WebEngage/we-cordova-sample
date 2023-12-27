@@ -7,5 +7,4 @@ target 'CordovaExample' do
 	pod 'WebEngage', '~> 5.2.6'
 	pod 'WebEngageAppEx/ContentExtension'
 	pod 'WebEngageBannerPush'
-	pod 'Firebase/Messaging', '~> 7.4.0'
 end
