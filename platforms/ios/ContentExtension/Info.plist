@@ -7,7 +7,20 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>UNNotificationExtensionCategory</key>
-			<string>myNotificationCategory</string>
+			<array>
+				<string>WEG_CAROUSEL_V1</string>
+				<string>WEG_RATING_V1</string>
+				<string>WEG_RICH_V1</string>
+				<string>WEG_RICH_V2</string>
+				<string>WEG_RICH_V3</string>
+				<string>WEG_RICH_V4</string>
+				<string>WEG_RICH_V5</string>
+				<string>WEG_RICH_V6</string>
+				<string>WEG_RICH_V7</string>
+				<string>WEG_RICH_V8</string>
+			</array>
+			<key>UNNotificationExtensionDefaultContentHidden</key>
+			<true/>
 			<key>UNNotificationExtensionInitialContentSizeRatio</key>
 			<real>1</real>
 		</dict>
