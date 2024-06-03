@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.webengage.cordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0"  xmlns:android="http://schemas.android.com/apk/res/android">
+<widget id="com.webengage.cordovaSample" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
   <name>CordovaExample</name>
   <description>Sample Apache Cordova App</description>
   <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
@@ -14,14 +14,11 @@
       <meta-data android:name="com.webengage.sdk.android.debug" android:value="true"/>
       <meta-data android:name="com.webengage.sdk.android.location_tracking" android:value="true"/>
       <meta-data android:name="com.webengage.sdk.android.alternate_interface_id" android:value="false"/>
-      <service
-              android:name="com.CustomFirebaseMessaging"
-              android:exported="true">
+      <service android:name="com.CustomFirebaseMessaging" android:exported="true">
         <intent-filter>
-          <action android:name="com.google.firebase.MESSAGING_EVENT" />
+          <action android:name="com.google.firebase.MESSAGING_EVENT"/>
         </intent-filter>
       </service>
-
     </config-file>
     <config-file parent="/manifest" target="AndroidManifest.xml">
       <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -30,7 +27,7 @@
   </platform>
   <platform name="ios">
     <config-file parent="WEGLicenseCode" target="*-Info.plist">
-      <string>~47b66161</string>
+      <string>WEBENGAGE_LICENSE</string>
     </config-file>
     <config-file parent="WEGLogLevel" target="*-Info.plist">
       <string>VERBOSE</string>
