@@ -1,2 +1,9 @@
 node_modules
 .idea
+/platforms
+/platforms/*
+/plugins
+/build
+yarn.lock
+platforms/android/*
+platforms/android/project.properties

@@ -55,7 +55,8 @@
             <a href="#">User Analytics</a>
             <div>
               <ul>
-                <li id="login"><a href="#">Perfrom Login</a></li>
+                <li id="login"><a href="#">Perform Login</a></li>
+                <li id="jwtToken"><a href="#">Update JWT Token</a></li>
                 <li id="logout"><a href="#">Perform Logout</a></li>
                 <li id="firstName"><a href="#">Set First Name</a></li>
                 <li id="lastName"><a href="#">Set Last Name</a></li>
@@ -76,13 +77,115 @@
               </ul>
             </div>
           </li>
+          <li>
+            <a href="#">User OptIn</a>
+            <div>
+              <ul>
+                <li class="optInItem">
+                  <label id="label">Push</label>
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      data-type="push"
+                      class="toggleOptIn"
+                    />
+                    <span class="slider round"></span>
+                  </label>
+                </li>
+                <li class="optInItem">
+                  <label id="label">SMS</label>
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      data-type="sms"
+                      class="toggleOptIn"
+                    />
+                    <span class="slider round"></span>
+                  </label>
+                </li>
+                <li class="optInItem">
+                  <label id="label">Email</label>
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      data-type="email"
+                      class="toggleOptIn"
+                    />
+                    <span class="slider round"></span>
+                  </label>
+                </li>
+                <li class="optInItem">
+                  <label id="label">InApp</label>
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      data-type="inApp"
+                      class="toggleOptIn"
+                    />
+                    <span class="slider round"></span>
+                  </label>
+                </li>
+                <li class="optInItem">
+                  <label id="label">WhatsApp</label>
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      data-type="whatsapp"
+                      class="toggleOptIn"
+                    />
+                    <span class="slider round"></span>
+                  </label>
+                </li>
+                <li class="optInItem">
+                  <label id="label">Viber</label>
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      data-type="viber"
+                      class="toggleOptIn"
+                    />
+                    <span class="slider round"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </nav>
       <div class="modal" id="loginModal">
         <div class="modal-content">
           <h2>Enter Your Information</h2>
-          <input type="text" id="cuid" placeholder="First Name" />
+          <input
+            type="text"
+            class="custom-input"
+            id="cuid"
+            placeholder="First Name"
+          />
+          <input
+            class="custom-input"
+            type="text"
+            id="jwt"
+            placeholder="Jwt Token(Optional)"
+          />
           <button id="loginButton">Login</button>
+        </div>
+      </div>
+      <div class="modal" id="secureTokenModal">
+        <div class="modal-content">
+          <h2>Update Your JWT Token</h2>
+          <input
+            type="text"
+            class="custom-input"
+            id="updateCuid"
+            placeholder="UserId"
+          />
+          <input
+            class="custom-input"
+            type="text"
+            id="updateJwt"
+            placeholder="Jwt Token"
+          />
+          <button id="updatJwt">Update JWT</button>
         </div>
       </div>
     </div>
