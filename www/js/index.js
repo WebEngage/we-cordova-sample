@@ -34,7 +34,6 @@ function onDeviceReady() {
     console.log("Push clicked");
   });
 
-
   webengage.notification.onPrepared(function (inAppData) {
     console.log(
       "InApp Prepared Callback Received, Data: " + JSON.stringify(inAppData)
@@ -57,7 +56,6 @@ function onDeviceReady() {
   webengage.jwtManager.tokenInvalidatedCallback(function () {
     console.log("JWT Token Invalidated");
 })
-  
 
   webengage.engage();
   document.getElementById("deviceready").classList.add("ready");
@@ -100,6 +98,36 @@ function checkAndroidPushPermission() {
     }
   );
 }
+
+// Handles user Optin changes
+document.querySelectorAll('.toggleOptIn').forEach(function (checkbox) {
+    checkbox.addEventListener('click', function () {
+      const optInType = this.getAttribute('data-type');
+      const isChecked = this.checked;
+      console.log(optInType + " opt-in . isChecked: " + isChecked);
+      webengage.user.setUserOptIn(optInType, isChecked)
+    });
+});
+
+function checkAndroidPushPermission() {
+    var permissions = cordova.plugins.permissions;
+    permissions.checkPermission(permissions.POST_NOTIFICATIONS, function( status ){
+        if ( status.hasPermission ) {
+          webengage.user.setDevicePushOptIn(true)
+        }
+        else {
+          permissions.requestPermission(permissions.POST_NOTIFICATIONS, function (status) {
+            if(status.hasPermission) {
+                webengage.user.setDevicePushOptIn(true)
+            } else {
+                webengage.user.setDevicePushOptIn(false)
+            }
+          }, function () {
+          })
+        }
+      });  
+}
+
 
 function toggleModal() {
   var modal = document.getElementById("loginModal");
@@ -420,6 +448,49 @@ function sendOnMessageRecieved() {
   };
   webengage.push.onMessageReceived(jsonData);
 }
+
+// Pass FCM Token To WebEngage
+function sendFcmToken() {
+    webengage.push.sendFcmToken("PASS_YOUR_TOKEN_FROM_JS")
+}
+
+// Pass FCM Message To WebEngage
+function sendOnMessageRecieved() {
+    const jsonData = {
+        "message_data": {
+          "identifier": "WEBENGAGE_LICENSE",
+          "image": null,
+          "rt": "<!DOCTYPE html><html><head></head><body>Test Title</body></html>",
+          "custom": [
+            {
+              "key": "provider",
+              "value": "FCM"
+            }
+          ],
+          "expandableDetails": {
+            "style": "BIG_TEXT",
+            "ratingScale": 5,
+            "message": "Test Description"
+          },
+          "title": "Test Title",
+          "message": "Test Description",
+          "priority": null,
+          "bckColor": "",
+          "cta": null,
+          "timeToLive": 86400,
+          "messageAction": "NOTIFICATION",
+          "customEventData": null,
+          "childExperimentMetaData": null,
+          "experimentId": "T_~asdf0s||asdf-7f60-4cd8-9d21-325493bbdafe#2:1716972731492",
+          "packageName": "com.webengage.cordovaSample",
+          "rm": "<!DOCTYPE html><html><head></head><body>Test Description</body></html>",
+          "license_code": "~134105693"
+        },
+        "source": "webengage",
+        "message_action": "show_system_tray_notification"
+      }
+      webengage.push.onMessageReceived(jsonData);
+    }
 
 // TRACK EVENT
 document.getElementById("event").addEventListener("click", showEventAlert);
