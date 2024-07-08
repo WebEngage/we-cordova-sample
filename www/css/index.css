@@ -44,6 +44,15 @@
   justify-content: center;
   align-items: center;
 }
+#label {
+  color: #1b1b1b;
+  font-size: 20px;
+  height: 100;
+}
+
+.optInItem {
+  height: 250;
+}
 
 .modal-content {
   background-color: #fff;
@@ -156,6 +165,14 @@ nav.vertical > ul > li > a:hover {
   background-image: linear-gradient(150deg, rgb(114, 51, 98), rgb(114, 51, 98));
   cursor: pointer;
 }
+.custom-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
 nav.vertical > ul > li > div {
   background-color: rgb(255, 255, 255);
@@ -241,4 +258,49 @@ h1 {
   body {
     background-image: linear-gradient(to bottom, #585858 0%, #1b1b1b 51%);
   }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
 }
