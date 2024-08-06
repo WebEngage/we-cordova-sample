@@ -28,7 +28,8 @@ function onDeviceReady() {
   if(androidVersion >= 13) {
       checkAndroidPushPermission(); //Request Android push permission for Android OS > 13
   }
-  androidfcm.updateToken();
+  // Uncomment while using we-cordova-android-fcm plugin
+  // androidfcm.updateToken();
 
   webengage.push.onClick(function (deeplink, customData) {
     console.log("Push clicked");
@@ -57,11 +58,11 @@ webengage.notification.onClick(function (inAppData, actionId) {
    document.getElementById('deviceready').classList.add('ready');
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     // Comment below line incase app freezing issue or configure FCM
-    FCM.eventTarget.addEventListener("notification", listener, false);
-
+    // FCM.eventTarget.addEventListener("notification", listener, false);
+  
 
   webengage.jwtManager.tokenInvalidatedCallback(function () {
-    console.log("JWT Token Invalidated");
+    console.log("WebEngage: JWT Token Invalidated");
 })
 
   webengage.engage();
@@ -69,7 +70,7 @@ webengage.notification.onClick(function (inAppData, actionId) {
   console.log("Running cordova-" + cordova.platformId + "@" + cordova.version);
   
   // Comment below line incase app freezing issue or configure FCM
-  FCM.eventTarget.addEventListener("notification", listener, false);
+  // FCM.eventTarget.addEventListener("notification", listener, false);
 }
 
 // Handles user Optin changes
@@ -239,6 +240,9 @@ document
   .getElementById("firstName")
   .addEventListener("click", showFirstNameAlert);
 function showFirstNameAlert() {
+  console.log("WebEngage: Sending Payload to push!")
+  // TODO Remove this and call it on Message Received from Firebase
+  sendOnMessageRecieved();
   // Cordova is now initialized. Have fun!
   console.log("firstName button pressed");
   navigator.notification.prompt(
@@ -417,87 +421,45 @@ function sendFcmToken() {
   webengage.push.sendFcmToken("PASS_YOUR_TOKEN_FROM_JS");
 }
 
-// Pass FCM Message To WebEngage
 function sendOnMessageRecieved() {
-  const jsonData = {
-    message_data: {
-      identifier: "WEBENGAGE_LICENSE",
-      image: null,
-      rt: "<!DOCTYPE html><html><head></head><body>Test Title</body></html>",
-      custom: [
-        {
-          key: "provider",
-          value: "FCM",
-        },
-      ],
-      expandableDetails: {
-        style: "BIG_TEXT",
-        ratingScale: 5,
-        message: "Test Description",
+  const rand = Math.random() * 10000 // This random Id is generated to differentiate between pushes
+const jsonData = {
+  message_data: {
+    identifier: "asd" + rand.toString(),
+    image: null,
+    rt: "<!DOCTYPE html><html><head></head><body>Test Title</body></html>",
+    custom: [
+      {
+        key: "provider",
+        value: "FCM",
       },
-      title: "Test Title",
+    ],
+    expandableDetails: {
+      style: "BIG_TEXT",
+      ratingScale: 5,
       message: "Test Description",
-      priority: null,
-      bckColor: "",
-      cta: null,
-      timeToLive: 86400,
-      messageAction: "NOTIFICATION",
-      customEventData: null,
-      childExperimentMetaData: null,
-      experimentId:
-        "T_~asdf0s||asdf-7f60-4cd8-9d21-325493bbdafe#2:1716972731492",
-      packageName: "com.webengage.cordovaSample",
-      rm: "<!DOCTYPE html><html><head></head><body>Test Description</body></html>",
-      license_code: "~134105693",
     },
-    source: "webengage",
-    message_action: "show_system_tray_notification",
-  };
-  webengage.push.onMessageReceived(jsonData);
+    title: "Test Title",
+    message: "Test Description",
+    priority: null,
+    bckColor: "",
+    cta: null,
+    timeToLive: 86400,
+    messageAction: "NOTIFICATION",
+    customEventData: null,
+    childExperimentMetaData: null,
+    experimentId:
+      "T_~asdf0s||asdf-7f60-4cd8-9d21-325493bbdafe#2:1716972731492" + rand.toString(),
+    packageName: "com.webengage.cordovaSample",
+    rm: "<!DOCTYPE html><html><head></head><body>Test Description</body></html>",
+    license_code: "~134105693",
+  },
+  source: "webengage",
+  message_action: "show_system_tray_notification",
+};
+webengage.push.onMessageReceived(jsonData);
 }
 
-// Pass FCM Token To WebEngage
-function sendFcmToken() {
-    webengage.push.sendFcmToken("PASS_YOUR_TOKEN_FROM_JS")
-}
-
-// Pass FCM Message To WebEngage
-function sendOnMessageRecieved() {
-    const jsonData = {
-        "message_data": {
-          "identifier": "WEBENGAGE_LICENSE",
-          "image": null,
-          "rt": "<!DOCTYPE html><html><head></head><body>Test Title</body></html>",
-          "custom": [
-            {
-              "key": "provider",
-              "value": "FCM"
-            }
-          ],
-          "expandableDetails": {
-            "style": "BIG_TEXT",
-            "ratingScale": 5,
-            "message": "Test Description"
-          },
-          "title": "Test Title",
-          "message": "Test Description",
-          "priority": null,
-          "bckColor": "",
-          "cta": null,
-          "timeToLive": 86400,
-          "messageAction": "NOTIFICATION",
-          "customEventData": null,
-          "childExperimentMetaData": null,
-          "experimentId": "T_~asdf0s||asdf-7f60-4cd8-9d21-325493bbdafe#2:1716972731492",
-          "packageName": "com.webengage.cordovaSample",
-          "rm": "<!DOCTYPE html><html><head></head><body>Test Description</body></html>",
-          "license_code": "~134105693"
-        },
-        "source": "webengage",
-        "message_action": "show_system_tray_notification"
-      }
-      webengage.push.onMessageReceived(jsonData);
-    }
 
 // TRACK EVENT
 document.getElementById("event").addEventListener("click", showEventAlert);
