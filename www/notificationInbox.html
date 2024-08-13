@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Notification Inbox - Manage and interact with notifications, including reading, marking as unread, and deleting notifications."
+    />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="back-button" id="backBtn">&lt;</div>
+      <div class="title">Notification Inbox</div>
+      <div class="menu-icon">
+        <img src="img/options.jpg" alt="Option Menu" id="menu-icon" />
+      </div>
+    </div>
+    <div class="spinner"></div>
+    <div class="floating-menu" id="floatingMenu">
+      <button id="readAll">Read All</button>
+      <button id="unreadAll">Unread All</button>
+      <button id="deleteAll">Delete All</button>
+    </div>
+    <div class="table-view">
+      <ul id="custom-list"></ul>
+    </div>
+    <div class="spinner-overlay" id="spinnerOverlay"></div>
+    <div class="bottom-spinner" id="bottomSpinner"></div>
+    <div id="no-notification"></div>
+    <div class="fetch-button-container">
+      <button id="fetchMoreButton" style="display: none" class="fetch-button">
+        Fetch More
+      </button>
+    </div>
+    <script src="cordova.js"></script>
+    <script src="js/notificationInbox.js"></script>
+  </body>
+</html>

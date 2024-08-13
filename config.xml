@@ -10,19 +10,17 @@
   <allow-intent href="https://*/*"/>
   <platform name="android">
     <config-file parent="/manifest/application" target="AndroidManifest.xml">
-      <meta-data android:name="com.webengage.sdk.android.key" android:value="WEBENGAGE_LICENSE"/>
+      <meta-data android:name="com.webengage.sdk.android.key" android:value="aa131d2c"/>
       <meta-data android:name="com.webengage.sdk.android.debug" android:value="true"/>
       <meta-data android:name="com.webengage.sdk.android.location_tracking" android:value="true"/>
       <meta-data android:name="com.webengage.sdk.android.alternate_interface_id" android:value="false"/>
-      <!-- Uncomment below line to use Google Ad Id  -->
-      <!-- <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="YOUR_AD_ID"/> -->
     </config-file>
     <config-file parent="/manifest" target="AndroidManifest.xml">
       <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
       <uses-permission android:name="android.permission.AD_ID"/>
     </config-file>
-            <!-- Uncomment below line to use Google Ad Id  -->
-    <!-- <resource-file src="build-extras.gradle" target="app/build-extras.gradle"/> -->
+    <resource-file src="build-extras.gradle" target="app/build-extras.gradle"/>
+
   </platform>
   <platform name="ios">
     <config-file parent="WEGLicenseCode" target="*-Info.plist">

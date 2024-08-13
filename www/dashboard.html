@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Explore your dashboard, where you can easily check your notification counts and manage your notifications. Reset your notification counts and smoothly navigate to the notification list to stay updated with ease."
+    />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="title">Sample App</div>
+      <div class="notification-icon">
+        <img
+          src="img/notification-bell.svg"
+          alt="Notification Bell"
+          onclick="navigateToNotificationInbox()"
+          id="notification-bell"
+        />
+        <span class="notification-count" id="notification-count">0</span>
+      </div>
+    </div>
+    <div class="content">
+      <p>Welcome, <span id="username">Username</span></p>
+      <button id="logoutBtn"></button>
+      <div class="dashboard">
+        <div class="dashboard-images">
+          <img src="img/image1.png" alt="Image 1" />
+          <img src="img/image2.png" alt="Image 2" />
+          <img src="img/image3.png" alt="Image 3" />
+        </div>
+      </div>
+    </div>
+    <script src="cordova.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

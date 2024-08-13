@@ -214,6 +214,13 @@ function showJwtAlert() {
       );
 }
 
+document.getElementById("notificationInbox").addEventListener("click", navigateToNotificationInbox);
+function navigateToNotificationInbox() {
+  console.log("webengage: navigate to NI")
+  alert("Navigate to Inbox")
+  window.location.href = "dashboard.html";
+}
+
 
 function performLogin(results) {
   console.log(results);
