@@ -155,6 +155,16 @@ function toggleJwtModal() {
     }
   }
 
+  // toggleLocationModal
+  function toggleLocationModal() {
+    var modal = document.getElementById("locationModal");
+    if (modal.style.display === "block") {
+      modal.style.display = "none"; // Hide the modal
+    } else {
+      modal.style.display = "block"; // Show the modal
+    }
+  }
+
 // Function to save data from the modal
 function saveData() {
  
@@ -187,8 +197,19 @@ function updateSecureToken() {
     toggleJwtModal();
   }
 
+  // updateLocation
+  function updateLocation() {
+    const lattitude = document.getElementById("lattitude").value;
+    const longitude = document.getElementById("longitude").value;
+    if (lattitude != "" && longitude != "") {
+      webengage.user.setLocation(lattitude,longitude);
+    }
+    toggleLocationModal();
+  }
+
 document.getElementById("loginButton").addEventListener("click", saveData);
 document.getElementById("updatJwt").addEventListener("click", updateSecureToken);
+document.getElementById("updateLocation").addEventListener("click", updateLocation);
 
 // LOGIN
 document.getElementById("login").addEventListener("click", function() {toggleModal(false)});
@@ -261,10 +282,14 @@ function showFirstNameAlert() {
   );
 }
 
+document
+  .getElementById("testPush")
+  .addEventListener("click", sendOnMessageRecieved);
+
+
 function setFirstName(results) {
   console.log(results);
   if (results.buttonIndex == 1) {
-    alert("You are logged in with the username: " + results.input1);
     webengage.user.setAttribute("we_first_name", results.input1);
   }
 }
@@ -274,8 +299,7 @@ document
   .getElementById("lastName")
   .addEventListener("click", showLastNameAlert);
 function showLastNameAlert() {
-  // Cordova is now initialized. Have fun!
-  console.log("firstName button pressed");
+  console.log("lastName button pressed");
   navigator.notification.prompt(
     "Please enter your last name.", // message
     setLastName, // callback to invoke
@@ -288,7 +312,6 @@ function showLastNameAlert() {
 function setLastName(results) {
   console.log(results);
   if (results.buttonIndex == 1) {
-    alert("You are logged in with the username: " + results.input1);
     webengage.user.setAttribute("we_last_name", results.input1);
   }
 }
@@ -310,7 +333,6 @@ function showEmailAlert() {
 function setEmail(results) {
   console.log(results);
   if (results.buttonIndex == 1) {
-    alert("You are logged in with the username: " + results.input1);
     webengage.user.setAttribute("we_email", results.input1);
   }
 }
@@ -334,7 +356,6 @@ function showHashedEmailAlert() {
 function setHashedEmail(results) {
   console.log(results);
   if (results.buttonIndex == 1) {
-    alert("You are logged in with the username: " + results.input1);
     webengage.user.setAttribute("we_hashed_email", results.input1);
   }
 }
@@ -356,7 +377,6 @@ function showPhoneAlert() {
 function setPhone(results) {
   console.log(results);
   if (results.buttonIndex == 1) {
-    alert("You are logged in with the username: " + results.input1);
     webengage.user.setAttribute("we_phone", results.input1);
   }
 }
@@ -380,7 +400,6 @@ function showHashedPhoneAlert() {
 function setHashedPhone(results) {
   console.log(results);
   if (results.buttonIndex == 1) {
-    alert("You are logged in with the username: " + results.input1);
     webengage.user.setAttribute("we_hashed_phone", results.input1);
   }
 }
@@ -392,14 +411,9 @@ document
 function showLocationAlert() {
   // Cordova is now initialized. Have fun!
   console.log("location button pressed");
+  toggleLocationModal();
 }
 
-function setLocation(results) {
-  console.log(results);
-  if (results.buttonIndex == 1) {
-    alert("You are logged in with the username: " + results.input1);
-  }
-}
 
 // SET SCREEN NAME
 document.getElementById("screen").addEventListener("click", showScreenAlert);
@@ -459,7 +473,7 @@ const jsonData = {
       "T_~asdf0s||asdf-7f60-4cd8-9d21-325493bbdafe#2:1716972731492" + rand.toString(),
     packageName: "com.webengage.cordovaSample",
     rm: "<!DOCTYPE html><html><head></head><body>Test Description</body></html>",
-    license_code: "~134105693",
+    license_code: "YOUR_LICENSE_CODE",
   },
   source: "webengage",
   message_action: "show_system_tray_notification",

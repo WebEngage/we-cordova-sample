@@ -65,6 +65,7 @@
                 <li id="phone"><a href="#">Set User Phone</a></li>
                 <li id="hashedPhone"><a href="#">Set User Hashed Phone</a></li>
                 <li id="location"><a href="#">Set User Location</a></li>
+                <li id="testPush"><a href="#">Send Sample Test Push</a></li>
                 <li id="notificationInbox"><a href="#">Notificaition Inbox</a></li>
               </ul>
             </div>
@@ -191,6 +192,25 @@
             placeholder="Jwt Token"
           />
           <button id="updatJwt">Update JWT</button>
+        </div>
+      </div>
+
+      <div class="modal" id="locationModal">
+        <div class="modal-content">
+          <h2>Add your Location</h2>
+          <input
+            type="text"
+            class="custom-input"
+            id="lattitude"
+            placeholder="lattitude"
+          />
+          <input
+            class="custom-input"
+            type="text"
+            id="longitude"
+            placeholder="longitude"
+          />
+          <button id="updateLocation">Add your Location</button>
         </div>
       </div>
     </div>
