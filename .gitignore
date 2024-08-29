@@ -3,6 +3,7 @@ platforms/
 
 !plugins/
 plugins/*
+plugins/
 !plugins/cordova-plugin-webengage
 !plugins/cordova-plugin-android-fcm
 
@@ -14,3 +15,4 @@ google-services.json
 .DS_Store
 platforms/*
 !platforms/
+platforms/
