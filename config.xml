@@ -17,10 +17,10 @@
     </config-file>
     <config-file parent="/manifest" target="AndroidManifest.xml">
       <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+      <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
       <uses-permission android:name="android.permission.AD_ID"/>
     </config-file>
     <resource-file src="build-extras.gradle" target="app/build-extras.gradle"/>
-
   </platform>
   <platform name="ios">
     <config-file parent="WEGLicenseCode" target="*-Info.plist">
